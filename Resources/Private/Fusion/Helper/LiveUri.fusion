@@ -1,0 +1,4 @@
+prototype(Neos.Seo:Helper.LiveUri) < prototype(Neos.Neos:NodeUri) {
+    node.@process.setContext = ${q(value).context({workspaceName: 'live'}).get(0)}
+    node.@process.setContext.@if.notLive = ${value.context.workspaceName != 'live'}
+}

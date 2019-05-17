@@ -9,7 +9,7 @@ prototype(Neos.Seo:CanonicalLink) < prototype(Neos.Fusion:Tag) {
             renderer = Neos.Fusion:Case {
                 node {
                     condition = ${Neos.Link.hasSupportedScheme(props.canonicalLink)}
-                    renderer = Neos.Neos:NodeUri {
+                    renderer = Neos.Seo:Helper.LiveUri {
                         node = ${Neos.Link.convertUriToObject(props.canonicalLink, props.node)}
                         absolute = true
                     }
@@ -22,7 +22,7 @@ prototype(Neos.Seo:CanonicalLink) < prototype(Neos.Fusion:Tag) {
 
                 default {
                     condition = true
-                    renderer = Neos.Neos:NodeUri {
+                    renderer = Neos.Seo:Helper.LiveUri {
                         node = ${props.node}
                         absolute = true
                     }
